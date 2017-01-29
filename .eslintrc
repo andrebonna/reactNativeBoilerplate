@@ -1,0 +1,31 @@
+{
+    "parser": "babel-eslint",
+    "extends": [
+        "google",
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
+    "plugins": [
+        "react",
+        "json"
+    ],
+    "rules": {
+        "comma-dangle": [
+            2,
+            "never"
+        ],
+        "valid-jsdoc": 0,
+        "require-jsdoc": 0,
+        "padded-blocks": 0,
+        "no-undef": 0,
+        "max-len": 0,
+        "react/prop-types": 0
+    },
+    "parserOptions": {
+        "sourceType": "module",
+        "ecmaVersion": 6,
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    }
+}
