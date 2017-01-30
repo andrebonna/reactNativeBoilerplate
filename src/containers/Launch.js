@@ -1,23 +1,35 @@
 import React, {Component} from 'react';
-import {Text, View} from 'react-native';
+import {View, Text, Switch, TextInput} from 'react-native';
+import {connect} from 'react-redux';
 
 import styles from '../styles/launch';
 
-export default class Launch extends Component {
+import {toggleBoolean, changeText} from '../actions';
+
+class Launch extends Component {
     render() {
+
+        const {props} = this;
+
         return (
             <View style={styles.container}>
                 <Text style={styles.welcome}>
                     Welcome to React Native!
                 </Text>
-                <Text style={styles.instructions}>
-                    To get started, edit index.ios.js
-                </Text>
-                <Text style={styles.instructions}>
-                    Press Cmd+R to reload,{'\n'}
-                    Cmd+D or shake for dev menu
-                </Text>
+                <Switch value={props.profile.isOk} onValueChange={props.toggleBoolean}/>
+                <TextInput
+                    style={styles.textInput}
+                    onChangeText={props.changeText}
+                    value={props.text}
+                />
             </View>
         );
     }
 }
+
+const mapStateToProps = (state) => ({profile: state.profile});
+
+export default connect(mapStateToProps, {
+    toggleBoolean,
+    changeText
+})(Launch);
