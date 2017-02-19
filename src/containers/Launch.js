@@ -2,11 +2,18 @@ import React, {Component} from 'react';
 import {View, Text, Switch, TextInput} from 'react-native';
 import {connect} from 'react-redux';
 
+import ToastAndroid from '../components/native/ToastAndroid';
+
 import styles from '../styles/launch';
 
 import {toggleBoolean, changeText} from '../actions';
 
 class Launch extends Component {
+
+    componentDidMount() {
+        ToastAndroid.show('Awesome', ToastAndroid.LONG);
+    }
+
     render() {
 
         const {props} = this;
